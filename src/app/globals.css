@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Base (light/dark) */
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+
+  /* Brand */
+  --primary: #0f3d2e;
+  --primary-hover: #145c43;
+  --primary-light: #1e7a5a;
+
+  /* Neutrals */
+  --gray-soft: #f4f6f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+
+    /* Ajuste de contraste no dark (opcional, mas fica bonito) */
+    --gray-soft: #121212;
+  }
+}
+
+/* Tailwind v4 tokens (gera classes tipo bg-primary, text-primary, etc.) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-gray-soft: var(--gray-soft);
+
+  /* Fonts (vamos setar no layout.tsx com next/font) */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-montserrat);
+}
+
+/* Base styles */
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
