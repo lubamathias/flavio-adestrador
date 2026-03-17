@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     template: "%s | Flávio Adestrador",
   },
   description: siteDescription,
+    verification: {
+    google: "TocajacwXeLWv2_PbA8bfV_5_-fmLh5zq51jnDl2Tds",
+  },
   applicationName: siteName,
   manifest: "/manifest.json",
   keywords: [
