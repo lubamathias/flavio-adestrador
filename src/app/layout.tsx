@@ -20,6 +20,12 @@ const siteName = "Flávio Adestrador";
 const siteDescription =
   "Adestramento de cães em Alto de Pinheiros, São Paulo e proximidades, com foco em obediência, comportamento, socialização e treino para filhotes.";
 
+const developerName = "Luciano Mathias";
+const developerUrl = "https://lucianomathias.com.br";
+const developerGithub = "https://github.com/lubamathias";
+const developerLinkedin =
+  "https://www.linkedin.com/in/lucianomathiasamorim/";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -42,7 +48,7 @@ export const metadata: Metadata = {
     "adestrador alto de pinheiros",
   ],
   authors: [{ name: siteName }],
-  creator: "Luciano Mathias",
+  creator: developerName,
   publisher: siteName,
   category: "Serviços locais",
   alternates: {
@@ -136,13 +142,30 @@ export default function RootLayout({
     ],
   };
 
+  const developerJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${developerUrl}/#person`,
+    name: developerName,
+    url: developerUrl,
+    jobTitle: "Desenvolvedor Web",
+    sameAs: [developerGithub, developerLinkedin],
+  };
+
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${montserrat.variable}`}>
+        {/* Site desenvolvido por Luciano Mathias — https://lucianomathias.com.br */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(developerJsonLd),
           }}
         />
         <Header />
